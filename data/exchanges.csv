@@ -1,0 +1,16 @@
+slug,name,type,spot_maker_pct,spot_taker_pct,perp_maker_pct,perp_taker_pct,status,verified_on,source
+backpack,Backpack,cex,0.08,0.1,0.02,0.05,verified,2026-11-07,https://backpack.exchange/fees
+binance,Binance,cex,0.1,0.1,0.02,0.05,verified,2026-11-07,https://www.binance.com/en/fee/schedule
+bitget,Bitget,cex,0.1,0.1,0.02,0.06,verified,2026-11-07,https://www.bitget.com/support/articles/12560603892734
+bybit,Bybit,cex,0.1,0.1,0.02,0.055,verified,2026-11-07,https://www.bybit.com/en/help-center/article/Trading-Fee-Structure
+deribit,Deribit,cex,0.02,0.05,0.015,0.035,verified,2026-10-10,https://www.deribit.com/api/v2/public/get_instruments?currency=USDC&kind=future
+dydx,dYdX,perp-dex,,,0.01,0.05,verified,2026-10-10,https://docs.dydx.xyz/concepts/trading/rewards
+gate,Gate,cex,0.1,0.1,0.02,0.05,verified,2026-11-07,https://www.gate.com/fee
+htx,HTX,cex,0.2,0.2,0.02,0.06,verified,2026-11-07,https://www.htx.com/fee/
+hyperliquid,Hyperliquid,perp-dex,0.04,0.07,0.015,0.045,verified,2026-11-07,https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees
+kraken,Kraken,cex,0.4,0.8,0.02,0.05,verified,2026-11-07,https://www.kraken.com/pro/fees
+kucoin,KuCoin,cex,,,0.02,0.06,verified,2026-10-10,https://www.kucoin.com/vip/level
+okx,OKX,cex,0.08,0.1,0.02,0.05,verified,2026-11-07,https://www.okx.com/fees
+uniswap,Uniswap,dex,,,,,verified,2026-10-08,https://support.uniswap.org/hc/en-us/articles/20131678274957-What-fees-do-I-pay-on-Uniswap
+coinbase,Coinbase,cex,,,,,unverifiable,2026-10-08,https://help.coinbase.com/en/coinbase/trading-and-funding/advanced-trade/advanced-trade-fees
+mexc,MEXC,cex,,,,,unverifiable,2026-11-07,https://www.mexc.com/fee
