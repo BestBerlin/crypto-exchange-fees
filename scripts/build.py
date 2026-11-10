@@ -76,9 +76,12 @@ def table(data: dict) -> str:
 def main(path: str):
     data = clean(json.load(open(path, encoding="utf-8")))
     os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
-    with open(os.path.join(ROOT, "data", "exchanges.json"), "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-        f.write("\n")
+    # same file in data/ (public dataset) and in the MCP package (offline fallback)
+    for target in (os.path.join(ROOT, "data", "exchanges.json"),
+                   os.path.join(ROOT, "src", "crypto_exchange_fees_mcp", "exchanges.json")):
+        with open(target, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+            f.write("\n")
     with open(os.path.join(ROOT, "data", "exchanges.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["slug", "name", "type", "spot_maker_pct", "spot_taker_pct", "perp_maker_pct",

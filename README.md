@@ -48,6 +48,23 @@ cheapest_spot_taker = min(
 print(cheapest_spot_taker["name"])
 ```
 
+## MCP server (for Claude, ChatGPT, Cursor and other AI agents)
+
+Let an AI assistant answer "which exchange has the lowest taker fee?" from official, dated figures. Requires [uv](https://docs.astral.sh/uv/).
+
+```json
+{
+  "mcpServers": {
+    "crypto-exchange-fees": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/BestBerlin/crypto-exchange-fees", "crypto-exchange-fees-mcp"]
+    }
+  }
+}
+```
+
+Tools: `list_exchanges`, `get_exchange_fees`, `compare_fees`, `cheapest`, `estimate_trading_cost`. The server reads the live dataset from this repository (cached 6 hours) and falls back to a bundled copy offline. Every answer carries the official source URL and the date it was read.
+
 ## Fields
 
 | Field | Meaning |

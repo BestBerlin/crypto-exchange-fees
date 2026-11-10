@@ -1,0 +1,410 @@
+{
+  "name": "crypto-exchange-fees",
+  "description": "Base-tier maker/taker trading fees of major crypto exchanges, each figure read from the exchange's own fee page and dated.",
+  "as_of": "2026-11-07",
+  "units": "percent of notional",
+  "tier": "lowest (regular user) tier, before token discounts",
+  "license": "CC-BY-4.0",
+  "attribution": "NexuAlpha (https://nexualpha.com/rates)",
+  "exchanges": [
+    {
+      "slug": "backpack",
+      "name": "Backpack",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.08,
+          "taker_pct": 0.1,
+          "note": "Tier 1 base rate. Official fee page, read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.05,
+          "note": "Tier 1 perps base rate. Official fee page, read 2026-11-07."
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://backpack.exchange/fees"
+      ],
+      "profile": "https://nexualpha.com/exchanges/backpack"
+    },
+    {
+      "slug": "binance",
+      "name": "Binance",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.1,
+          "taker_pct": 0.1,
+          "note": "Regular User, Maker/Taker 0.100%/0.100%. Official fee page (binance.com/en/fee/trading), read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.05,
+          "note": "Regular User, USDⓈ-M USDT perpetuals Maker/Taker 0.0200%/0.0500%. Official futures fee page (binance.com/en/fee/futureFee), read 2026-11-07."
+        }
+      },
+      "fee_discount": {
+        "token": "BNB",
+        "spot_pct": 25,
+        "perp_pct": 10,
+        "note": "Official fee pages: BNB 25% off spot, 10% off USDⓈ-M futures."
+      },
+      "sources": [
+        "https://www.binance.com/en/fee/schedule",
+        "https://www.binance.com/en/support/faq/detail/360033544231",
+        "https://www.binance.com/en/fee/trading",
+        "https://www.binance.com/en/fee/futureFee"
+      ],
+      "profile": "https://nexualpha.com/exchanges/binance"
+    },
+    {
+      "slug": "bitget",
+      "name": "Bitget",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.1,
+          "taker_pct": 0.1,
+          "note": "VIP 0 spot. Data source of bitget.com/fee (VIP rules config), read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.06,
+          "note": "VIP 0 USDT-M futures; also BTCUSDT contract API makerFeeRate/takerFeeRate. Re-read 2026-11-07."
+        }
+      },
+      "fee_discount": {
+        "token": "BGB",
+        "note": "Spot fee discount when BGB offset enabled; percentage not retrieved"
+      },
+      "sources": [
+        "https://www.bitget.com/support/articles/12560603892734",
+        "https://www.bitget.com/fee"
+      ],
+      "profile": "https://nexualpha.com/exchanges/bitget"
+    },
+    {
+      "slug": "bybit",
+      "name": "Bybit",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.1,
+          "taker_pct": 0.1,
+          "note": "VIP 0, Spot crypto-crypto. Official Trading Fee Structure article (updated 2026-11-05), read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.055,
+          "note": "VIP 0, Perpetual & Futures. Same official article, read 2026-11-07."
+        }
+      },
+      "fee_discount": {
+        "token": "MNT",
+        "note": "Page references paying fees in MNT but states no percentage; value null"
+      },
+      "sources": [
+        "https://www.bybit.com/en/help-center/article/Trading-Fee-Structure"
+      ],
+      "profile": "https://nexualpha.com/exchanges/bybit"
+    },
+    {
+      "slug": "deribit",
+      "name": "Deribit",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-10-10",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.05,
+          "note": "Official public API instrument BTC_USDC: maker_commission 0.0002, taker_commission 0.0005. Read 2026-10-10."
+        },
+        "perp": {
+          "maker_pct": 0.015,
+          "taker_pct": 0.035,
+          "note": "Official public API: BTC_USDC-PERPETUAL (USDC-margined linear perps; the USDT perp is archived) maker 0.00015 / taker 0.00035; inverse BTC-PERPETUAL the same. Read 2026-10-10."
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://www.deribit.com/api/v2/public/get_instruments?currency=USDC&kind=future"
+      ],
+      "profile": "https://nexualpha.com/exchanges/deribit"
+    },
+    {
+      "slug": "dydx",
+      "name": "dYdX",
+      "type": "perp-dex",
+      "status": "verified",
+      "verified_on": "2026-10-10",
+      "fees": {
+        "spot": {
+          "maker_pct": null,
+          "taker_pct": null,
+          "note": "No spot market on dYdX v4."
+        },
+        "perp": {
+          "maker_pct": 0.01,
+          "taker_pct": 0.05,
+          "note": "Tier 1 (< $1M 30-day volume): taker 5.0 bps, maker 1.0 bps. Official docs; schedule set by governance. Read 2026-10-10."
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://docs.dydx.xyz/concepts/trading/rewards"
+      ],
+      "profile": "https://nexualpha.com/exchanges/dydx"
+    },
+    {
+      "slug": "gate",
+      "name": "Gate",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.1,
+          "taker_pct": 0.1,
+          "note": "VIP0 spot 0.1%/0.1% (GT deduction 0.09%). Official fee page gate.com/fee, read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.05,
+          "note": "VIP0 USDT perpetuals 0.02%/0.05% (all groups). Official fee page gate.com/fee (合约费率 › USDT 永续), read 2026-11-07."
+        }
+      },
+      "fee_discount": {
+        "token": "GT",
+        "note": "GT deduction: VIP0 spot 0.09%/0.09% per fee page"
+      },
+      "sources": [
+        "https://www.gate.com/fee"
+      ],
+      "profile": "https://nexualpha.com/exchanges/gate-io"
+    },
+    {
+      "slug": "htx",
+      "name": "HTX",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.2,
+          "taker_pct": 0.2,
+          "note": "Prime0 spot maker/taker 0.2000%/0.2000%. Official fee page htx.com/fee/ (Spot Fee Rates tab), read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.06,
+          "note": "Prime0 USDT-margined futures maker/taker 0.0200%/0.0600% (Group 1, the page's default tab). Official fee page htx.com/fee/ (Futures Fee Rates tab), read 2026-11-07."
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://www.htx.com/fee/"
+      ],
+      "profile": "https://nexualpha.com/exchanges/htx"
+    },
+    {
+      "slug": "hyperliquid",
+      "name": "Hyperliquid",
+      "type": "perp-dex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.04,
+          "taker_pct": 0.07,
+          "note": "Tier 0 base rate (14-day volume ≤ $5M), before staking/referral discounts. Official docs, read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.015,
+          "taker_pct": 0.045,
+          "note": "Tier 0 perps base rate. Official docs, read 2026-11-07."
+        }
+      },
+      "fee_discount": {
+        "token": "HYPE",
+        "staking_tiers_pct": {
+          ">10": 5,
+          ">100": 10,
+          ">1000": 15,
+          ">10000": 20,
+          ">100000": 30,
+          ">500000": 40
+        },
+        "note": "Referral discount applies to first $25M volume; percentage not stated on page"
+      },
+      "sources": [
+        "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees"
+      ],
+      "profile": "https://nexualpha.com/exchanges/hyperliquid"
+    },
+    {
+      "slug": "kraken",
+      "name": "Kraken",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.4,
+          "taker_pct": 0.8,
+          "note": "Tier 1 Spot Maker/Taker 0.40%/0.80% on Kraken's official fee schedule; Tier 2 begins at $2.5K spot volume. A Spot Maker Rebate table on the same page shows 0.38%/0.80%. Read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.05,
+          "note": "Tier 1 Futures Maker/Taker 0.02%/0.05% on Kraken's official fee schedule; Tier 2 begins at $5M futures volume. Also futures.kraken.com fee schedule API tier 0. Read 2026-11-07."
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://www.kraken.com/pro/fees",
+        "https://support.kraken.com/articles/360000381846-kraken-and-kyc-verification-levels",
+        "https://futures.kraken.com/derivatives/api/v3/feeschedules"
+      ],
+      "profile": "https://nexualpha.com/exchanges/kraken"
+    },
+    {
+      "slug": "kucoin",
+      "name": "KuCoin",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-10-10",
+      "fees": {
+        "spot": {
+          "maker_pct": null,
+          "taker_pct": null,
+          "note": "Not confirmed: the official VIP page is JS-rendered and the base-fee endpoint needs auth (2026-10-10)."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.06,
+          "note": "Official futures API: every active USDT-settled contract (e.g. XBTUSDTM) makerFeeRate 0.0002 / takerFeeRate 0.0006. Read 2026-10-10."
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://www.kucoin.com/vip/level",
+        "https://www.kucoin.com/announcement/it-vip-program-update-spot-trading-fees-volume-requirements-will-be-updated",
+        "https://api-futures.kucoin.com/api/v1/contracts/XBTUSDTM"
+      ],
+      "profile": "https://nexualpha.com/exchanges/kucoin"
+    },
+    {
+      "slug": "okx",
+      "name": "OKX",
+      "type": "cex",
+      "status": "verified",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": 0.08,
+          "taker_pct": 0.1,
+          "note": "Regular user, Spot standard pairs. Official fee page okx.com/fees, read 2026-11-07."
+        },
+        "perp": {
+          "maker_pct": 0.02,
+          "taker_pct": 0.05,
+          "note": "Regular user, Futures tab (USDT-margined). Public endpoint used by okx.com/fees, read 2026-11-07."
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://www.okx.com/fees"
+      ],
+      "profile": "https://nexualpha.com/exchanges/okx"
+    },
+    {
+      "slug": "uniswap",
+      "name": "Uniswap",
+      "type": "dex",
+      "status": "verified",
+      "verified_on": "2026-10-08",
+      "fees": {
+        "spot": {
+          "maker_pct": null,
+          "taker_pct": null,
+          "note": "Interface/wallet fee 0% (Uniswap Labs charges none as of 2025-12-27); pool fee tiers not stated on page, so maker/taker null"
+        },
+        "perp": {
+          "maker_pct": null,
+          "taker_pct": null,
+          "note": "Not applicable"
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://support.uniswap.org/hc/en-us/articles/20131678274957-What-fees-do-I-pay-on-Uniswap"
+      ],
+      "profile": "https://nexualpha.com/exchanges/uniswap"
+    },
+    {
+      "slug": "coinbase",
+      "name": "Coinbase",
+      "type": "cex",
+      "status": "unverifiable",
+      "verified_on": "2026-10-08",
+      "fees": {
+        "spot": {
+          "maker_pct": null,
+          "taker_pct": null,
+          "note": "unverifiable: rates are shown only after sign-in (coinbase.com/advanced-fees redirects to login); help article lists no rates"
+        },
+        "perp": {
+          "maker_pct": null,
+          "taker_pct": null,
+          "note": "unverifiable: same"
+        }
+      },
+      "fee_discount": null,
+      "sources": [
+        "https://help.coinbase.com/en/coinbase/trading-and-funding/advanced-trade/advanced-trade-fees"
+      ],
+      "profile": "https://nexualpha.com/exchanges/coinbase"
+    },
+    {
+      "slug": "mexc",
+      "name": "MEXC",
+      "type": "cex",
+      "status": "unverifiable",
+      "verified_on": "2026-11-07",
+      "fees": {
+        "spot": {
+          "maker_pct": null,
+          "taker_pct": null,
+          "note": "Official page shows fee ranges: spot 0% maker / 0–0.05% taker. Checked 2026-11-07; rates vary by pair and region. Values remain unpublished because official sources conflict."
+        },
+        "perp": {
+          "maker_pct": null,
+          "taker_pct": null,
+          "note": "Official page shows fee ranges: perpetual futures 0–0.04% maker / 0–0.10% taker. Checked 2026-11-07; rates vary by contract and region. Values remain unpublished because official sources conflict."
+        }
+      },
+      "fee_discount": {
+        "token": "MX",
+        "spot_pct": 20,
+        "perp_pct": 20,
+        "note": "MX deduction 20% per fee page note"
+      },
+      "sources": [
+        "https://www.mexc.com/fee",
+        "https://www.mexc.co/fee"
+      ],
+      "profile": null
+    }
+  ]
+}
