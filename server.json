@@ -1,0 +1,19 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.BestBerlin/crypto-exchange-fees",
+  "title": "Crypto Exchange Fees",
+  "description": "Base-tier maker/taker fees for 15 crypto exchanges, each read from the official fee page and dated.",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/BestBerlin/crypto-exchange-fees",
+    "source": "github"
+  },
+  "websiteUrl": "https://nexualpha.com/rates",
+  "packages": [
+    {
+      "registryType": "oci",
+      "identifier": "ghcr.io/bestberlin/crypto-exchange-fees:0.1.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

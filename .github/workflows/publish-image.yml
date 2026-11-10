@@ -1,0 +1,39 @@
+name: Publish MCP image
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: |
+          python -m pip install -q -e . pytest
+          python -m pytest -q tests/test_server.py
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Version from pyproject
+        id: v
+        run: echo "version=$(python -c "import tomllib;print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")" >> "$GITHUB_OUTPUT"
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/bestberlin/crypto-exchange-fees:${{ steps.v.outputs.version }}
+            ghcr.io/bestberlin/crypto-exchange-fees:latest
+      - name: Smoke test the image over stdio
+        run: |
+          printf '%s\n' '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"ci","version":"0"}}}' \
+            | timeout 20 docker run -i --rm ghcr.io/bestberlin/crypto-exchange-fees:${{ steps.v.outputs.version }} | head -c 400
