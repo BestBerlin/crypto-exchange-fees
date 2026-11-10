@@ -1,0 +1,12 @@
+{
+  "title": "Crypto Exchange Fees: official, dated base-tier maker/taker fees",
+  "upload_type": "dataset",
+  "description": "Base-tier maker and taker trading fees for 15 crypto exchanges (CEX, DEX and perpetual DEX), each figure read from the exchange's official fee page and recorded with its source URL and the date it was read. JSON and CSV, plus an MCP server for AI assistants. Maintained by NexuAlpha: https://nexualpha.com/rates",
+  "creators": [{ "name": "NexuAlpha" }],
+  "license": "cc-by-4.0",
+  "keywords": ["cryptocurrency", "exchange fees", "trading costs", "maker taker", "open data", "MCP"],
+  "related_identifiers": [
+    { "identifier": "https://nexualpha.com/rates", "relation": "isDocumentedBy", "resource_type": "other" },
+    { "identifier": "https://github.com/BestBerlin/crypto-exchange-fees", "relation": "isSupplementTo", "resource_type": "software" }
+  ]
+}
