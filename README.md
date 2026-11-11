@@ -2,7 +2,10 @@
 
 Base-tier maker/taker trading fees for major crypto exchanges (CEX, DEX and perp DEX), **each figure read from the exchange's own fee page and dated**. No estimates: a value an official page does not state is left empty.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24125147.svg)](https://doi.org/10.5281/zenodo.24125147)
+
 - Machine-readable: [`data/exchanges.json`](data/exchanges.json) · [`data/exchanges.csv`](data/exchanges.csv)
+- Also on [Hugging Face](https://huggingface.co/datasets/BestBerlin/crypto-exchange-fees) and [Kaggle](https://www.kaggle.com/datasets/lilixin898/crypto-exchange-trading-fees-official-dated); citable via DOI [10.5281/zenodo.24125147](https://doi.org/10.5281/zenodo.24125147)
 - Fees are percent of notional at the lowest (regular user) tier, before token discounts (e.g. BNB) and before any VIP tier.
 - Every row links to the official source it was read from.
 

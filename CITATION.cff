@@ -8,6 +8,7 @@ authors:
 repository-code: "https://github.com/BestBerlin/crypto-exchange-fees"
 url: "https://nexualpha.com/rates"
 license: CC-BY-4.0
+doi: "10.5281/zenodo.24125147"
 version: "0.1.0"
 date-released: "2026-11-11"
 keywords:
